@@ -24,8 +24,8 @@ To qualify for the official limited edition Hacktoberfest shirt, you must regist
 
 ```mermaid
 flowchart LR
-    Fork[Fork the project]-->
-    Fork-->Edit[Edit file]
+    Fork[Fork the project]
+    -->Edit[Edit file]
     -->commit -->|Finally|creatpr((Create a Pull Request))
     
  ```
