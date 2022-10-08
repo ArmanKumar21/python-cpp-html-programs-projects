@@ -36,7 +36,7 @@ You can get your own fork/copy of [HacktoberFest-2022](https://github.com/anomek
 
 ### 2. Clone it :busts_in_silhouette:
 
-`NOTE: commands are to be executed on Linux, Mac, and Windows(using Powershell)`
+`NOTE: commands are to be executed on Linux, Mac, and Windows(using Powershell or git bash)`
 
 You need to clone or (download) it to local machine using
 
