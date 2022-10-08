@@ -5,7 +5,7 @@ using namespace std;
 
 int inSequence(int a, int b, int c)
 {
-    if (c == 0)
+    if (c == 0 )
     {
         if (a != b)
         {
