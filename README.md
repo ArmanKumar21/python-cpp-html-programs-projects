@@ -43,3 +43,13 @@ You need to clone or (download) it to local machine using
 ```sh
 $ git clone https://github.com/Your_Username/Hacktoberfest-2022.git
 ```
+
+### 3. Make file change and commit:
+
+Now, open the directory in which you cloned it and add your project or make any changes that you want.Then,commit it and push into your created repository.
+
+### 4. Pull request:
+
+Then you need to go into your repository and click on "Contribute" --> "Open Pull Request". 
+
+### So, you have successfully made your pull request.Now, I will verify your pull request and merge it into my repository.
