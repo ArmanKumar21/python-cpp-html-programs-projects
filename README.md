@@ -17,3 +17,16 @@ https://hacktoberfest.digitalocean.com/
 Rules:
 
 To qualify for the official limited edition Hacktoberfest shirt, you must register [here](https://hacktoberfest.com/) and make four Pull Requests (PRs) between October 1-31, 2022 (in any time zone). PRs can be made to any public repository on GitHub, not only the ones with issues labeled Hacktoberfest. This year, the first 40,000 participants who complete Hacktoberfest can elect to receive one of two prizes: a tree planted in their name, or the Hacktoberfest 2022 t-shirt.
+
+## Steps to follow :scroll:
+
+### Tip : Complete this process in GitHub (in your browser)
+
+```mermaid
+flowchart LR
+    Fork[Fork the project]-->branch[Create a New Branch]
+    branch-->Edit[Edit file]
+    Edit-->commit[Commit the changes]
+    commit -->|Finally|creatpr((Create a Pull Request))
+    
+ ```
