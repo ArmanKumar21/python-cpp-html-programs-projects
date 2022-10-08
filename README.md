@@ -1,3 +1,5 @@
+[!image](https://user-images.githubusercontent.com/99328861/194718098-63ad137c-8be5-405d-bc24-17c3b8346b81.png)]
+
 # python-cpp-projects
 This Repository is created to help fellow coders learn open source contributions. This Repository is created for Hacktoberfest 2022
 This repository aims to help code beginners with their first successful pull request and open source contribution. 🥳
