@@ -26,7 +26,6 @@ To qualify for the official limited edition Hacktoberfest shirt, you must regist
 flowchart LR
     Fork[Fork the project]-->branch[Create a New Branch]
     branch-->Edit[Edit file]
-    Edit-->commit[Commit the changes]
     commit -->|Finally|creatpr((Create a Pull Request))
     
  ```
