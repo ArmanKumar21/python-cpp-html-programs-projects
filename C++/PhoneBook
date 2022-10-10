@@ -1,0 +1,284 @@
+#include <iostream>
+#include <string.h>
+#include <cctype>
+
+using namespace std;
+
+class Node {
+public:
+    char name[30];
+    char number[20];
+    Node* nextLink;
+    Node* prevLink;
+    
+    Node(char n[], char num[])
+    {
+        strcpy(name,n);
+        strcpy(number, num);
+        nextLink = NULL;
+        prevLink = NULL;
+    }
+    friend class contactList;
+};
+
+class contactList {
+    Node* head, * temp, * ptr;
+
+public:
+    void insert();
+    void sort();
+    void deletecontact(char n[30]);
+    void searchbyname(char p[30]);
+    void searchbynumber(char num[20]);
+    void takeInput();
+    void display();
+    void update(char a[30]);
+};
+
+void contactList::takeInput() {
+    char name[30];
+    char number[20];
+    char c;
+    do {
+    	system("cls");
+        cout << "\nEnter Name: ";
+        cin.sync();
+        cin.getline(name,30);
+        cout << "\nEnter Phone Number: ";
+        cin >> number;
+        while (strlen(number) != 10) {
+            cout << "Enter Valid Phone Number";
+            cin >> number;
+        }
+        temp = new Node(name, number);
+        if (head == NULL)
+        {
+            head = temp;
+        }
+        else
+        {
+            ptr = head;
+            while (ptr->nextLink != NULL)
+            {
+                ptr = ptr->nextLink;
+            }
+            ptr->nextLink = temp;
+            temp->prevLink = ptr;
+        }
+        cout << "\nDo you wish to continue?\n";
+        cin >> c;
+    } while (c == 'y' || c == 'Y');
+    
+}
+
+void contactList::display() {
+	system("cls");
+    ptr = head;
+    while (ptr != NULL)
+    {
+        cout << "Name: " << ptr->name << endl;
+        cout << "Phone Number: " << ptr->number << endl;
+        ptr = ptr->nextLink;
+    }
+}
+
+void contactList::insert() {
+    takeInput();
+}
+
+void contactList::sort() {
+    Node* a, * b;
+    int temp;
+    char n[30];
+    char no[20];
+    for (a = head; a->nextLink != NULL; a = a->nextLink) {
+        for (b = a->nextLink; b!=NULL; b = b->nextLink) {
+            temp = strcmp(a->name, b->name);
+            if (temp > 0) {
+                //Swapping the names
+                strcpy(n, a->name);
+                strcpy(a->name, b->name);
+                strcpy(b->name, n);
+                strcpy(no, a->number);
+                strcpy(a->number, b->number);
+                strcpy(b->number, no);
+            }
+        }
+    }
+}
+
+void contactList::deletecontact(char n[30]) {
+    int c = 0;
+    ptr = head;
+    while (ptr != NULL) {
+        if (strcmp(n, ptr->name) == 0) {
+            c = 1;
+            break;
+        }
+        else
+            c = 2;
+        ptr = ptr->nextLink;
+    }
+    if (c == 1 && ptr != head && ptr->nextLink != NULL) {
+        ptr->prevLink->nextLink = ptr->nextLink;
+        ptr->nextLink->prevLink = ptr->prevLink;
+        delete(ptr);
+        cout << "Contact Deleted Successfully!\n";
+    }
+    if (ptr == head) {
+        head = head->nextLink;
+        head->prevLink = NULL;
+        delete(ptr);
+        cout << "Contact Deleted Successfully!\n";
+    }
+    if (ptr->nextLink == NULL) {
+        ptr->prevLink->nextLink = NULL;
+        ptr->prevLink = NULL;
+        delete(ptr);
+        cout << "Contact Deleted Successfully!\n";
+    }
+    if(c==2)
+        cout << "Name Not Found!\n";
+}
+
+void contactList::searchbyname(char p[30]) {
+	system("cls");
+    ptr = head;
+    while (ptr != NULL) {
+        if (strcmp(p, ptr->name) == 0) {
+            cout << "Contact Found.\n";
+            cout << "Name: " << ptr->name << endl;
+            cout << "Phone Number: " << ptr->number << endl;
+        }
+        ptr = ptr->nextLink;
+    }
+}
+
+void contactList::searchbynumber(char num[20]) {
+	system("cls");
+    ptr = head;
+    while (ptr != NULL) {
+        if (strcmp(num, ptr->number) == 0) {
+            cout << "Contact Found.\n";
+            cout << "Name: " << ptr->name << endl;
+            cout << "Phone Number: " << ptr->number << endl;
+        }
+        ptr = ptr->nextLink;
+    }
+}
+
+void contactList::update(char a[30]) {
+	system("cls");
+    char choice;
+    int n;
+    ptr = head;
+    while (ptr != NULL) {
+        if (strcmp(a, ptr->name) == 0) {
+            do {
+                cout << "Which type of information you want to Update?\n";
+                cout << "1. Name\t2. Phone Number\n";
+                cin >> n;
+                switch (n) {
+                case 1:
+                    cout << "Enter New Name: ";
+                    cin >> ptr->name;
+                    break;
+
+                case 2:
+                    cout << "Enter New Phone Number: ";
+                    cin >> ptr->number;
+                    while (strlen(ptr->number) != 10) {
+                        cout << "Enter a Valid Phone Number!\n";
+                        cin >> ptr->number;
+                    }
+                    break;
+                }
+                cout << "Do you wish to continue?\n";
+                cin >> choice;
+            } while (choice == 'y' || choice == 'Y');
+        }
+        ptr=ptr->nextLink;
+    }
+}
+
+int main()
+{
+    contactList c; //Creating object of contactList Class
+
+    int choice,ch;
+    char a;
+    char name[30];
+    char number[20];
+    cout << "\t\t**********\n\t\tPHONE BOOK\n\t\t**********\n\n";
+    cout << "Developed by Nitin Nishad\n*************************\n";
+    cout << "\n\nEnter Username\n";
+    cin.getline(name, 30);
+    cout << "\n\nHello " << name<<", Let's get started.\n\n";
+    system("cls");
+    do {
+    	cout << "\t\t**********\n\t\tPHONE BOOK\n\t\t**********\n\n";
+        cout << "\n1. Add New Contact.\n2. Update Existing Contact.\n3. Display All Contacts.\n4. Search Contact\n5. Delete a Contact.\n6. Exit.\n\n";
+        cin >> choice;
+        switch (choice)
+        {
+        case 1:
+        	system("cls");
+            c.insert();
+            c.sort();
+            break;
+
+        case 2:
+        	system("cls");
+            cout << "Enter Name: ";
+            cin.sync();
+            cin.getline(name, 30);
+            c.update(name);
+            c.sort();
+            break;
+
+        case 3:
+        	system("cls");
+            c.sort();
+            c.display();
+            break;
+
+        case 4:
+        	system("cls");
+            do {
+            	system("cls");
+                cout << "1. Search by Name.\n2. Search by Phone Number.\n";
+                cin >> ch;
+                switch (ch) {
+                case 1:
+                    cout << "Enter Name: ";
+                    cin.sync();
+                    cin.getline(name, 30);
+                    c.searchbyname(name);
+                    break;
+
+                case 2:
+                    cout << "Enter Phone Number: ";
+                    cin >> number;
+                    c.searchbynumber(number);
+                    break;
+                }
+                cout << "\nDo you wish to Continue?\n";
+                cin >> a;
+            } while (a == 'y' || a == 'Y');
+            break;
+
+        case 5:
+        	system("cls");
+                cout << "Enter Name to delete contact: ";
+                cin.sync();
+                cin.getline(name, 30);
+                c.deletecontact(name);
+                cout << "\nDo you wish to Continue?\n";
+                break;
+                
+        case 6:
+            exit(0);
+            break;
+        }
+    } while (choice != 6);
+}
