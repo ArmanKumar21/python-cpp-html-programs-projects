@@ -5,7 +5,7 @@ This Repository is created to help fellow coders learn open source contributions
 This repository aims to help code beginners with their first successful pull request and open source contribution. 🥳
 ⭐ Feel free to use this project to make your first contribution to an open-source project on GitHub. Practice making your first pull request to a public repository before doing the real thing!
 
-### Try to work on different and unique projects which are not present in this repository already.
+### Try to work on different and unique projects which are not present in this repository already and give little description about your project.
 
 ⭐ Make sure to grab some cool swags during Hacktoberfest by getting involved in the open-source community.
 
