@@ -1,3 +1,24 @@
+/*
+The key idea is the same as the TwoSum problem. When we fix the 1st number, the 2nd and 3rd number can be found following the same reasoning as TwoSum.
+
+The only difference is that, the TwoSum problem of LEETCODE has a unique solution. However, in ThreeSum, we have multiple duplicate solutions that can be found. Most of the OLE errors happened here because you could've ended up with a solution with so many duplicates.
+
+The naive solution for the duplicates will be using the STL methods like below :
+
+std::sort(res.begin(), res.end());
+res.erase(unique(res.begin(), res.end()), res.end());
+
+But according to my submissions, this way will cause you double your time consuming almostly.
+
+A better approach is that, to jump over the number which has been scanned, no matter it is part of some solution or not.
+
+If the three numbers formed a solution, we can safely ignore all the duplicates of them.
+
+We can do this to all the three numbers such that we can remove the duplicates.
+
+Here's my AC C++ Code:
+*/
+
 class Solution
 {
 public:
