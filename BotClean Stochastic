@@ -1,0 +1,72 @@
+#include<iostream>
+#include<vector>
+using namespace std;
+
+void nextMove(int posr, int posc, vector <string> board) {
+    int aposr=-1;
+    int aposc=-1;
+    
+    if(board[posr][posc]=='d')
+    {
+        cout<<"CLEAN";
+    }
+    
+    else
+    {
+    for(int i=0;i<5;i++)
+    {
+        for(int j=0;j<5;j++)
+        {
+            if(board[i][j]=='d')
+            {
+                aposr=i;
+                aposc=j;
+                break;
+            }
+        }
+        if(aposr!=-1)
+        {
+            break;
+        }
+    }
+        
+    int diffr=posr-aposr;
+    int diffc=posc-aposc;
+    
+    if(diffr>0)
+    {
+        cout<<"UP";
+    }
+        
+    else if(diffr<0)
+    {
+        cout<<"DOWN";
+    }
+        
+    else if(diffc>0)
+    {
+        cout<<"LEFT";
+    }
+        
+    else if(diffc<0)
+    {
+        cout<<"RIGHT";
+    }
+    }
+    
+    return;
+
+}
+
+int main(void) {
+    int pos[2];
+    vector <string> board;
+    cin>>pos[0]>>pos[1];
+    for(int i=0;i<5;i++) {
+        string s;
+        cin >> s;
+        board.push_back(s);
+    }
+    nextMove(pos[0], pos[1], board);
+    return 0;
+}
