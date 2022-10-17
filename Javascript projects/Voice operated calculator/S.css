@@ -1,0 +1,189 @@
+html {
+    font-size: 62.5%;
+    font-family: sans-serif;
+    background-color: white;
+    padding: 0rem auto;
+}
+
+#calculator {
+    width: 90vw;
+    height: 90vh;
+    background-image: url("back.jpg");
+    background-repeat: no-repeat;
+    background-color: transparent;
+    background-size: cover;
+    top: 2rem;
+    bottom: 2rem;
+    left: 0rem;
+    right: 0rem;
+    position: relative;
+    border-radius: 12%;
+    border: 5px solid red;
+    margin: 0rem auto;
+}
+
+#results {
+    height: 12rem;
+    position: relative;
+}
+
+#history {
+    text-align: right;
+    height: 2rem;
+    margin: 0 2rem;
+    padding-top: 2rem;
+    font-size: 1.5rem;
+    color: white;
+    font-size: 2rem;
+    position: relative;
+}
+
+#output {
+    text-align: right;
+    height: 6rem;
+    margin: 1rem 2rem;
+    font-size: 5rem;
+    color: white;
+    bottom: 0.5rem;
+    position: relative;
+}
+
+#keyboard {
+    height: 40rem auto;
+    width: 27.5rem auto;
+    position: relative;
+    text-align: center;
+    margin: 2rem;
+    padding: 0rem;
+}
+
+.operator,
+.number,
+.empty {
+    width: 5rem;
+    height: 5rem;
+    margin: 0.5rem;
+    border-radius: 50%;
+    border-width: 0;
+    font-weight: Bold;
+    font-size: 2.5rem;
+    color: black;
+    position: relative;
+}
+
+.number,
+.empty {
+    background-color: transparent;
+    color: white;
+    position: relative;
+}
+
+.number,
+.operator {
+    cursor: pointer;
+}
+
+.empty:hover {
+    background-size: 125% 125%;
+}
+
+.operator:hover,
+.number:hover,
+{
+    font-size: 4rem;
+}
+
+.operator:focus,
+.number:focus,
+.empty:focus,
+.mic:focus {
+    outline: 0;
+}
+
+button:nth-child(4) {
+    background-color: teal;
+}
+
+button:nth-child(10) {
+    background-color: rgb(219, 114, 44);
+}
+
+button:nth-child(16) {
+    background-color: rgb(143, 39, 74);
+}
+
+button:nth-child(21) {
+    background-color: rgb(109, 58, 177);
+}
+
+button:nth-child(26) {
+    background-color: rgb(101, 182, 207);
+}
+
+#tooltip {
+    width: 12rem;
+    height: 7rem;
+    font-size: 1.5rem;
+    color: black;
+    position: absolute;
+    text-align: left;
+    background-color: thistle;
+    border: 2px solid;
+    margin-top: 2rem;
+    border-radius: 10%;
+    font-weight: bold;
+    visibility: hidden;
+}
+
+#mic:hover #tooltip {
+    visibility: visible;
+}
+
+#tooltip::before {
+    content: "";
+    position: absolute;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent thistle transparent;
+    left: -0.1rem;
+    margin-top: -2rem;
+}
+
+.empty {
+    background-image: url("B.jpg");
+    background-size: cover;
+    width: 5rem;
+    height: 5rem;
+    border-width: 0rem;
+    margin: 0.5rem;
+    background-color: transparent;
+}
+
+.mic {
+    border-radius: 50%;
+    width: 5rem;
+    height: 5rem;
+    border-width: 0rem;
+    background-image: url("M1.jpg");
+    background-size: 100% 100%;
+    background-color: transparent;
+    margin: 0.5rem;
+}
+
+.record {
+    animation: MA 1.5s infinite;
+}
+
+@keyframes MA {
+    0% {
+        transform: scale(0.9);
+    }
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 1rem rgb(251, 255, 5);
+    }
+    100% {
+        transform: scale(0.9);
+        box-shadow: 0 0 0 0rem rgb(251, 255, 5);
+    }
+}
