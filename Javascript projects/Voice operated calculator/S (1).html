@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CALOICE-Your Smart calculator</title>
+    <link rel="stylesheet" type="text/css" href="S.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:600,700" />
+</head>
+
+<body>
+    <div id="calculator">
+        <div id="results">
+            <div id="history">
+                <p id="historyvalue"></p>
+            </div>
+            <div id="output">
+                <p id="output-value">0</p>
+            </div>
+        </div>
+        <div id="keyboard">
+            <button class="operator" id="clear">C</button>
+            <button class="operator" id="backspace">CE</button>
+            <button class="operator" id="%">%</button>
+            <button class="operator" id="/">&#247</button><br><br>
+            <button class="number" id="7">7</button>
+            <button class="number" id="8">8</button>
+            <button class="number" id="9">9</button>
+            <button class="operator" id="*">&times</button><br><br>
+            <button class="number" id="4">4</button>
+            <button class="number" id="5">5</button>
+            <button class="number" id="6">6</button>
+            <button class="operator" id="-">-</button>
+            <br>
+            <button class="number" id="1">1</button>
+            <button class="number" id="2">2</button>
+            <button class="number" id="3">3</button>
+            <button class="operator" id="+">+</button><br>
+            <button class="empty" id="empty"></button>
+            <button class="number" id="0">0</button>
+            <button class="mic" id="mic"><span id="tooltip">Tap on the mic to speak the numbers and operations</span></button>
+            <button class="operator" id="E" onclick="responsiveVoice.speak(document.getElementById('output-value').innerText)">=</button>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="S.js"></script>
+    <script src="https://code.responsivevoice.org/responsivevoice.js?key=5i5DDtWl"></script>
+    <script>
+        let G = document.getElementById("output-value").innerText;
+        if (G != NaN) {
+            $("#E").trigger('click');
+        }
+        responsiveVoice.speak("Welcome!!! to Caloice... Your Smart calculator");
+    </script>
+    </head>
+</body>
+
+</html>
