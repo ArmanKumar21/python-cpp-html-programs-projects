@@ -7,9 +7,36 @@ canvas {
     border:1px solid #f7a219;
     background-color: #08070c;
 }
+
+.button{
+    background-color:#040303;
+    border: none;
+    color: white;
+    
+    padding: 10px;
+    box-shadow: none;
+    margin-top: 10px;
+    border-radius: 4px;
+    transition: box-shadow 0.15s;
+}
+.button:active{
+    background-color: hsl(59, 100%, 50%);
+    border: none;
+    color: rgb(2, 0, 0);
+    font-weight: bold;
+    margin-top: 15px;
+    margin-left: 15px;
+    padding-bottom:10px;
+    border-radius: 4px;
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.15);
+}
+
+.div{
+    color: white;
+}
 </style>
 </head>
-<body onload="startGame()">
+<body style="background-color: #310505;" onload="startGame()">
 <script>
    
 
@@ -131,8 +158,9 @@ function accelerate(n) {
 }
 </script>
 <br>
-<button onmousedown="accelerate(-0.10)" onmouseup="accelerate(0.200)">ACCELERATE</button>
-<p>Use the <b>ACCELERATE</b> button to stay in the air</p>
-<h1>This game is made by <b>Rajnandan Prasad</b></h1>
+<div style="text-align: center;"><button class="button" onmousedown="accelerate(-0.10)" onmouseup="accelerate(0.200)">ACCELERATE</button></div>
+<div class="div">
+<p><span>Tips:</span> Use the <b>ACCELERATE</b> button to stay in the air</p></div>
+<footer style="color: white;"><p>This game is made by <strong>Rajnandan Prasad</strong></p></footer>
 </body>
 </html>
